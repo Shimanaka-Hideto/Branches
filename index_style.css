@@ -1,0 +1,331 @@
+
+/*------------------------------------------------------------------------------
+
+index_design (共通用）
+
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+
+BASE SETTING
+
+------------------------------------------------------------------------------*/
+* {
+	margin:0;
+	padding:0;
+}
+
+html {
+    width:  100%;
+    height: 100%;
+}
+
+body {
+    background-image: url("../../images/green02.jpg");
+    width:  100%;
+    height: 100%;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+}
+
+div.park {
+    margin:1em; padding:1em;
+}
+
+div.evalout {
+    overflow-x: auto;
+}
+
+/*------------------------------------------------------------------------------
+
+HEADER SETTING
+
+------------------------------------------------------------------------------*/
+#container {
+    position: relative;
+	width: 100%;
+}
+
+#header {	
+	height:10%;
+    width: 100%;
+    font-size: 90%;
+    padding-left: 2%;
+    position: relative;
+    display: inline-block;
+}
+
+#button_box {
+    text-align: right;
+    padding: 2%;
+}
+
+#result {
+    display: inline;
+}
+
+#durationTime {
+    width: 150px;
+    height: 25px;
+    font-style: oblique;
+    font-size: large;
+    text-align: center;
+}
+
+.wide_btn{
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #2f2b64;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#e9dffc 0%, #cfc4ff 100%);
+    background-image: linear-gradient(#e7e1ff 0%, #cfc2ff 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.wide_btn:active{
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-linear-gradient(#ebe7ff 0%, #ded5ff 100%);
+    background-image: linear-gradient(#eae2fd 0%, #d5ccff 100%);
+}
+
+a:hover{
+    opacity: 0.6; 
+    filter: alpha(opacity=60); 
+    -moz-opacity: 0.6;
+}
+
+#clear {
+	clear:both;
+}
+
+/*------------------------------------------------------------------------------
+
+CONTENTS SETTING LEFT
+
+------------------------------------------------------------------------------*/
+#left {
+    float: left;
+	width: 50%;
+	height: 82%;
+	position: relative;
+}
+
+#slide_main {
+    margin-top: 1%;
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-bottom: 1%;
+    position: relative;
+}
+
+#slide_main img {
+    width: 100%;
+    height: 100%;
+}
+
+.slider {
+    margin: 10px auto;
+    width: 100%;
+    opacity: 0;
+    transition: 3s;
+}
+
+#left_box {
+    background: rgb(238, 237, 247);
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+    width: 91%;
+    height: 320px;
+    padding: 1% 1%;
+    margin-top: 1%;
+    margin-right: 2%;
+    margin-left: 4%;
+    font-size: 100%;
+    overflow: auto;
+}
+
+#left_box .literal_block {
+    margin: 2em auto;
+    padding: 1em;
+    width: 90%;
+    color: #666;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+}
+
+.slick-initialized {
+    opacity: 1;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+#slide_btn {
+    text-align: right;
+    position: relative;
+}
+
+#maru_image, #batsu_image, #one_image, #two_image, #three_image {
+    position: absolute;
+    top: -150px;
+    right: -130px;
+    display: none;
+    z-index: 100;
+}
+
+#io_main {
+    margin-left: 4%;
+    margin-right: 2%;
+}
+
+/* I/O tabs all style */
+.tabs {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* I/O tabs style */
+.tab_item {
+    width: calc(100%/3);
+    height: 25px;
+    border-bottom: 3px solid #5ab4bd;
+    background-color: #d9d9d9;
+    line-height: 25px;
+    font-size: 9px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.tab_item:hover {
+    opacity: 0.75;
+}
+
+input[name="tab_item"] {
+    display: none;
+}
+
+.tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+/* selected item content visible only */
+#output:checked ~ #output_content,
+#input:checked ~ #input_content,
+#html:checked ~ #html_content {
+    display: block;
+}
+
+/* change style selected tabs */
+.tabs input:checked + .tab_item {
+    background-color: #5ab4bd;
+    color: #fff;
+}
+
+/*------------------------------------------------------------------------------
+
+CONTENTS SETTING RIGHT
+
+------------------------------------------------------------------------------*/
+
+#right {
+    float: left;
+    width:  48%;
+    height: 82%;
+    right: 0;
+    bottom: 0;
+	position: relative;
+}
+
+#editor {
+    overflow: auto;
+    margin: 0;
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    top: 0;
+    bottom: 0;
+    margin-left: 2%;
+    margin-right: 3%;
+}
+
+#clear {
+	clear:both;
+}
+
+code2 {
+	padding:5px;
+}
+
+.code-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.43);/*アイコン色*/
+    width: 40px;
+    height: 40px;
+    line-height: 20px;
+    font-size: 20px;
+    border-radius: 25%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+    background-image: linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: solid 2px #b5b5b5;
+    cursor: pointer;
+}
+
+.code-btn .fas {
+    line-height: 40px;
+}
+
+.code-btn:hover {
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.code-btn:active {
+    background-image: -webkit-linear-gradient(#4b4949 0%, #131212 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+    cursor: pointer;
+}
+
+/*------------------------------------------------------------------------------
+CSS SETTINGS END---////
+------------------------------------------------------------------------------*/

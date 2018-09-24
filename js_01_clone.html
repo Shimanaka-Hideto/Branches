@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" keyword="CodeEditorJavaScript">
+        <title>Code Editor -JavaScript-</title>
+        <link rel="stylesheet" type="text/css" media="all" href="common/css/slick-theme.css">
+        <link rel="stylesheet" type="text/css" media="all" href="common/css/slick.css">
+        <link rel="stylesheet" type="text/css" media="all" href="common/css/index_style.css">
+        <script type="text/javascript" src="lib/ace.js" charset="utf-8"></script>
+        <script type="text/javascript" src="common/js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="common/js/slick.min.js"></script>
+        <script type="text/javascript" src="common/js/structure.js"></script>
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <style type="text/css">.CodeMirror {border-top: 1px solid  black; border-bottom: 1px solid black;}</style>
+    </head>
+    <body onload="loadScreen()", oncopy="return false", onpaste="return false", oncontextmenu="return false">
+        <div id="container">
+            <div id="header">
+                <table>
+                    <td><h2>Code Editor -JavaScript-</h2></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><br>
+                        <h2>Title area</h2>
+                    </td>
+                    <tr>
+                        <td><a href="js_menu.html" class="wide_btn" id="backmenu_btn">return menu</a></td>
+                    </tr>
+                </table>
+                <div style="float: right; margin-right: 100px">
+                    <input type="hidden" id="durationTime" disabled />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    <div id="botton_box">
+                        <a href="#" class="wide_btn" id="remakeCode" onclick="fnReload();">restart</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" class="wide_btn" id="runCode" onclick="updatePreview('js', '1');">run code</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div> 
+            <div id="left">
+                <!-- Slide or Question Area -->
+                <div id="left_box">
+                    <p>This area is question place.</p>
+                    <p>xxxxxxxxx xxxxxxxx xxxxxxxxx</p>
+                    <p>xxxxxxxxx xxxxxxxx xxxxxxxxx</p>
+                    <p>xxxxxxxxx xxxxxxxx xxxxxxxxx</p>
+                    <p>xxxxxxxxx xxxxxxxx xxxxxxxxx</p>
+                </div>
+                <!-- Slide-btn or Popup Area-->
+                <div id="slide_btn">
+                    <div id="maru_image"><img src="images/maru.png" alt="maru" align="middle" /></div>
+                    <div id="batsu_image"><img src="images/batsu.png" alt="batsu" align="middle" /></div>
+                    <div id="one_image"><img src="images/one.png" alt="1" align="middle" /></div>
+                    <div id="two_image"><img src="images/two.png" alt="2" align="middle" /></div>
+                    <div id="three_image"><img src="images/three.png" alt="3" align="middle" /></div>
+                </div><br>                  
+                <!-- I/O Area -->
+                <div id="io_main">
+                    <div class="tabs">
+                        <input id="output" type="radio" name="tab_item" checked>
+                        <label class="tab_item" for="output">output</label>
+                        <input id="input"type="radio" name="tab_item">
+                        <label class="tab_item" for="input">input</label>
+                        <input id="html"type="radio" name="tab_item">
+                        <label class="tab_item" for="html">HTML</label>
+                        <div class="tab_content" id="output_content">
+                            <div class="tab_content_despriction">
+                                <p class="c-txtsp">output contents</p>
+                            </div>
+                        </div>
+                        <div class="tab_content" id="input_content">
+                            <div class="tab_content_despriction">
+                                <p class="c-txtsp">input contents</p>
+                            </div>
+                        </div>
+                        <div class="tab_content" id="html_content">
+                            <div class="tab_content_despriction">
+                                <p class="c-txtsp">html contents</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Text Area End -->
+            </div>
+            <div id="right">
+                <!-- Code Editor Area -->
+                <pre id="editor">
+Class Sample() {
+    public static void main(String args[]){
+        document.out.println("sample java");
+    }
+}
+                </pre>
+                <script>
+                    var editor = ace.edit("editor");
+                    editor.setTheme("ace/theme/twilight");
+                    editor.session.setMode("ace/mode/javascript");
+                </script>
+                <div id="clear"></div>
+            </div>
+        </div>
+    </body>
+</html>
